@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Kata Sandi dan Tampilkan PDF</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #pdfViewer {
+            display: none; /* Sembunyikan PDF viewer sampai kata sandi benar */
+            width: 100%;
+            height: 80vh;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>haloo,ini khusus buat fruktosa rahma nanti ada dokumen ucapan buat kamu</h2>
+    <input type="password" id="password" placeholder="tanggal sepesial kita">
+    <button onclick="checkPassword()">Masuk</button>
+    <p id="message"></p>
+</div>
+
+<iframe id="pdfViewer" src="Dokumenn.pdf"></iframe> <!-- Ganti dengan nama file PDF Anda -->
+
+<script>
+    const correctPassword = "270924"; // Ganti dengan kata sandi yang diinginkan
+
+    function checkPassword() {
+        const inputPassword = document.getElementById("password").value;
+        const message = document.getElementById("message");
+        const pdfViewer = document.getElementById("pdfViewer");
+
+        if (inputPassword === correctPassword) {
+            message.textContent = ""; // Hapus pesan kesalahan
+            pdfViewer.style.display = "block"; // Tampilkan PDF viewer
+        } else {
+            message.textContent = "cuman buat fruktosa wleee, yang lain gaboleh liat.";
+            pdfViewer.style.display = "none"; // Sembunyikan PDF viewer
+        }
+    }
+</script>
+
+</body>
+</html>
